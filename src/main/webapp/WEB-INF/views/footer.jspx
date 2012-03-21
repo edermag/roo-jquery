@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" id="footer" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+
+  <spring:url value="http://www.yaw.com.br" var="yaw"/>
+  <spring:url value="http://www.springsource.org/spring-roo" var="springroo"/>
+  <spring:url value="http://jquery.com/" var="jquery"/>
+  <spring:url value="http://twitter.github.com/bootstrap/" var="bootstrap"/>
+  <span>
+    <a href="${yaw}">
+      Site da YaW
+    </a>
+  </span>
+  
+  <span id="language">
+    <c:out value=" | "/>
+    Tecnologias utilizadas nessa demo
+    <c:out value=": "/>
+    <a href="${springroo}">
+      Spring Roo
+    </a>
+    <c:out value=" | "/>
+    <a href="${jquery}">
+      JQuery
+    </a>
+    <c:out value=" | "/>
+    <a href="${bootstrap}">
+      Bootstrap
+    </a>
+    
+    <c:out value=" | "/>
+  </span>
+  
+  <br/>
+  
+  <util:language label="English" locale="en"/>
+  <util:language label="Brasil" locale="br"/>
+  
+</div>

@@ -1,0 +1,11 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-03-19 16:55:52
+project --topLevelPackage br.com.yaw
+persistence setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE
+entity jpa --class ~.model.Cliente
+field string --fieldName nome --notNull --sizeMin 3
+field string --fieldName cpf
+web mvc setup
+web mvc scaffold --class ~.web.ClienteController
+hint
+perform package
+perform eclipse

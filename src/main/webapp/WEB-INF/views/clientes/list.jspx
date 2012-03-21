@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_br_com_yaw_model_Cliente" items="${clientes}">
+        <table:table data="${clientes}" id="l_br_com_yaw_model_Cliente" path="/clientes" z="4ithf63HwyvrNJqG9HVfk9e7IcM=">
+            <table:column id="c_br_com_yaw_model_Cliente_nome" property="nome" z="xijCy20bZcHaq/B5sqMLAaV8jOY="/>
+            <table:column id="c_br_com_yaw_model_Cliente_cpf" property="cpf" z="f8ELZ8etd1l8wQWHYeEjgJgxTeM="/>
+        </table:table>
+        
+        <page:breadcrumb active="global_menu_list" id="b_br_com_yaw_model_cliente">
+        	<page:breaditem url="/" name="button_home" />
+        </page:breadcrumb>
+    </page:list>
+</div>

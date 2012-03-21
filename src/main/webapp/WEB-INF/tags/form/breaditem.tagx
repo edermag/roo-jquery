@@ -1,0 +1,32 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="name" type="java.lang.String" required="true" rtexprvalue="true" description="" />
+  <jsp:directive.attribute name="url" type="java.lang.String" required="true" rtexprvalue="true" description="" />
+  <jsp:directive.attribute name="label" type="java.lang.String" required="false" rtexprvalue="true" description="" />
+  <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+  <jsp:directive.attribute name="z" type="java.lang.String" required="false" rtexprvalue="false" />
+  
+  <c:if test="${empty render or render}">
+  	<c:choose>
+  	  <c:when test="${empty label}">
+  	    <spring:message code="${name}" var="label" arguments="${breadcrumb_id}" htmlEscape="false" />
+  	  </c:when>
+  	  <c:otherwise>
+  	    <spring:message code="label_${label}" var="label" htmlEscape="false" />
+  	    <spring:message code="${name}" var="label" arguments="${label}" htmlEscape="false" />
+  	  </c:otherwise>
+  	</c:choose>
+  	
+    <c:choose>
+      <c:when test="${empty breadcrumbNames and empty breadcrumbUrls}">
+        <c:set var="breadcrumbNames" value="${label}" scope="request" />
+        <c:set var="breadcrumbUrls" value="${url}" scope="request" />
+      </c:when>
+      <c:otherwise>
+        <c:set var="breadcrumbNames" value="${breadcrumbNames},${label}" scope="request" />
+        <c:set var="breadcrumbUrls" value="${breadcrumbUrls},${url}" scope="request" />
+      </c:otherwise>
+    </c:choose>
+  </c:if>
+</jsp:root>

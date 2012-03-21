@@ -1,0 +1,37 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+    <jsp:output omit-xml-declaration="yes" />
+
+    <spring:url value="/resources/js/jquery.min.js" var="jquery_url" />
+	<spring:url value="/resources/js/jquery.ui.core.js" var="jquery_ui_core_url" />
+	<spring:url value="/resources/js/jquery.validator.js" var="jquery_validator_url" />
+	<spring:url value="/resources/js/jquery.ui.datepicker.js" var="jquery_datepicker_url" />
+	<spring:url value="/resources/js/jquery.ui.timepicker.js" var="jquery_timepicker_url" />
+	<spring:url value="/resources/js/jquery.ui.mask.js" var="jquery_mask_url" />
+	<spring:url value="/resources/js/jquery.tipsy.js" var="jquery_tipsy_url" />
+	<spring:url value="/resources/images/favicon.ico" var="favicon" />
+	
+	<spring:url value="/resources/styles/bootstrap-1.2.0.min.css" var="bootstrap_url" />
+	<spring:url value="/resources/styles/jquery.ui.timepicker.css" var="jquery_timepicker_css_url" />
+	<spring:url value="/resources/styles/jquery.tipsy.css" var="jquery_tipsy_css_url" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="${bootstrap_url}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${jquery_timepicker_css_url}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${jquery_tipsy_css_url}" />
+	<link rel="SHORTCUT ICON" href="${favicon}" />
+	
+	<!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
+	<c:set var="userLocale">
+	  <c:out value="${pageContext.response.locale}" default="en" />
+	</c:set>
+	
+	<script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: false, locale: '${fn:toLowerCase(userLocale)}'};</script>
+	
+	<script src="${jquery_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+	<script src="${jquery_datepicker_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+	<script src="${jquery_timepicker_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+	<script src="${jquery_ui_core_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+	<script src="${jquery_tipsy_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+	<script src="${jquery_validator_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+
+</jsp:root>
